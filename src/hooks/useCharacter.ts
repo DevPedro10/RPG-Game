@@ -1,14 +1,17 @@
 import { posix } from "path";
 import { useState } from "react" 
+import { CharacterSides } from "../types/CharacterSides";
 
 export const useCharacter = () => {
-    const [pos, setPos] = useState ({x:3, y:4});
+    const [pos, setPos] = useState({x:3, y:4});
+    const [side, setSide] = useState<CharacterSides>('down');
 
     const moveLeft = () => {
         setPos(pos =>({
             x: pos.x -1,
             y: pos.y
         }));
+        setSide('left');
     }
 
     const moveRight = () => {
@@ -16,6 +19,7 @@ export const useCharacter = () => {
             x: pos.x +1,
             y: pos.y
         }));
+        setSide('right');
     }
 
     const moveDown = () => {
@@ -23,6 +27,7 @@ export const useCharacter = () => {
             x: pos.x,
             y: pos.y +1
         }));
+        setSide('down');
     }
 
     const moveUp = () => {
@@ -30,6 +35,7 @@ export const useCharacter = () => {
             x: pos.x,
             y: pos.y -1
         }));
+        setSide('up');
     }
 
     return {
@@ -38,7 +44,8 @@ export const useCharacter = () => {
         moveDown,
         moveLeft,
         moveRight,
-        moveUp
+        moveUp,
+        side
     };
 
 }
