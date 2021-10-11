@@ -32,11 +32,8 @@ const App = () => {
         char.moveDown();
       break;
     }
-
-
-
-
   }
+  
   return (
     <C.Container>
       <C.Map>

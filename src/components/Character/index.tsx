@@ -7,7 +7,6 @@ type props = {
     side: CharacterSides;
 }
 
-
 export const Character = ({x, y, side}: props ) => {
     const size = 30;
     const sides = {
